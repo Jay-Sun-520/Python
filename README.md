@@ -10,3 +10,11 @@
 <p>b.2 进去后按https://blog.csdn.net/yinkaishikd/article/details/86679761 这个网页的方法修改文件，注意random随机文件名可以直接固定，有可能报错。
 <p>b.3 进入到手机本文件中的目录
 <p>b.4 在手机中用python运行本程序，会在手机文件中的目录下生成QR.png文件，在电脑中打开扫描即可登录运行了
+
+<p> 2019.11.19
+<p> 如果出现no module named xxx出现，则有2中可能，一种是没有该库，一种是库引用的位置不在当前库的位置，按以下方法解决、
+<p> 1. 没有该库，用pip install安装，例如：pip install apscheduler
+<p> 2. 这样报错的原因是我们import模块的时候使用的是相对路径，所以命令行运行的时候就找不到模块的路径。这里解决办法是在文件最上面，也就是import模块之前，加上类似如下代码：
+<p> import sys
+<p> import os
+<p> sys.path.append(os.path.dirname(sys.path[0]))
